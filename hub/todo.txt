@@ -1,0 +1,8 @@
+Print Device id ( "machine.unique_id()" function)
+Hex to decimal on device id
+json read
+UART
+Black formating
+The requirments file
+
+README
