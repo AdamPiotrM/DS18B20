@@ -1,8 +1,17 @@
-Print Device id ( "machine.unique_id()" function)
-Hex to decimal on device id
-json read
-UART
+Piority:
+
+Highest:
+
+Force Json to work (perhaps changing json lib to ujson lib)
+
+
+High:
+
 Black formating
-The requirments file
+The requirments file (BOM)
+
+
+Lowest:
 
 README
+Re-format (or rewrite) code so it's easier on the eyes to look at
