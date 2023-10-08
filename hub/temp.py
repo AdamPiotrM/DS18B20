@@ -1,14 +1,20 @@
 import time
 import machine
 import onewire, ds18x20
-import json
+import ujson
 
-with open("config.json", "r") as file:
-    pin = file[Pin]
-    RR = file["interval"] # RR = Refresh Rate
+with open("config.json", "r") as f:
+    config = ujson.load(f)
+
+    pin_num = config.get(
+        "Pin", 16
+    )
+    RR = config.get(
+        "Interval", 9
+    ) # RR = Refresh Rate
 
 #dat = machine.Pin(16) #placeholder, to be changed to read from config file
-dat = machine.Pin(pin)
+dat = machine.Pin(pin_num)
 
 # create the onewire object
 ds = ds18x20.DS18X20(onewire.OneWire(dat))
