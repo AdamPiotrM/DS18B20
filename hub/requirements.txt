@@ -1,0 +1,5 @@
+3-4x Jumpers (Female to Female)
+1x DS18B20
+1x 4.8k ohm resistor
+1x Raspberry Pico
+1x USB-MicroUSB cable
