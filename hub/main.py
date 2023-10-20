@@ -20,16 +20,20 @@ ds = ds18x20.DS18X20(onewire.OneWire(dat))
 roms = ds.scan()
 print("found devices:", roms)
 
-# gets sensor and device id's and translates them into hex
-sensor_id = hex(int.from_bytes(b"(\xabG8N \x01\x0c", "little"))
-device_id = hex(int.from_bytes(b"(\xe6ad\x08C% &)", "little"))
+# left-over code
+#sensor_id = hex(int.from_bytes(b"(\xabG8N \x01\x0c", "little"))
+#device_id = hex(int.from_bytes(b"(\xe6ad\x08C% &)", "little"))
 
+# Get unique device ID
+device_id = machine.unique_id()
+device_id_hex = device_id.hex()
 
 # placeholder if json doesn't work
 # while True:
 #    ds.convert_temp()
 #    time.sleep_ms(750)
 #    for rom in roms:
+#        sensor_id = hex(int.from_bytes(rom, "little"))
 #        print( device_id, sensor_id, ds.read_temp(rom), end='\n') # Needs some testing
 
 
@@ -38,4 +42,5 @@ while True:
     ds.convert_temp()
     time.sleep_ms(RR)
     for rom in roms:
-        print(device_id, sensor_id, ds.read_temp(rom), end="\n")
+        sensor_id = hex(int.from_bytes(rom, "little"))
+        print(device_id_hex[2:], sensor_id[2:], ds.read_temp(rom), end="\n")
